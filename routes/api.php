@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/',[\App\Http\Controllers\ApiController::class, 'index']);
-Route::get('/db-status',[\App\Http\Controllers\ApiController::class, 'checkDatabaseConnection']);
 Route::post('artisan/run', [\App\Http\Controllers\ArtisanController::class, 'run'])->name('artisan');
 Route::controller(AuthController::class)->group(function(){
     Route::post('register', 'register');
