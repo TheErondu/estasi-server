@@ -54,7 +54,7 @@ class AuthController extends ApiController
 
             return $this->sendResponse($success, 'User logged in successfully.');
         } else {
-            return $this->sendError('Incorrect credentials! - '.$request->email.'and'.$request->password, ['error' => 'Incorrect credentials!'], 200);
+            return $this->sendError('Incorrect credentials! - '.$request->email.' and '.$request->password, ['error' => 'Incorrect credentials!'], 200);
         }
     }
     public function logout()
