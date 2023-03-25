@@ -5,29 +5,20 @@ use App\Services\UserApiService;
 use App\Services\UserViewService;
 use App\Utils\ConstantStrings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends ApiController
 {
-    protected UserApiService $userApiService;
-    protected UserViewService $userViewService;
-
-    public function __construct(UserApiService $userApiService, UserViewService $userViewService)
+    public function userInfo(Request $request): \Illuminate\Http\JsonResponse
     {
-        $this->userApiService = $userApiService;
-        $this->userViewService = $userViewService;
+        $user = $request->user();
+        return $this->sendResponse($user, ConstantStrings::$UserLoggedIn);
     }
 
-    public function userInfo(Request $request){
-        return $this->userApiService->userInfo($request);
-    }
-
-
-    public function getUsersList(Request $request)
+    public function getUsersList(): \Illuminate\Http\JsonResponse
     {
-        if ($request->header('Accept') == 'application/json') {
-            return $this->userApiService->getUsersList();
-        } else {
-            return $this->userViewService->getUsersList();
-        }
+        $users = DB::table('users')->paginate(10);
+
+        return $this->sendResponse($users, ConstantStrings::$ListRetrieved);
     }
 }
