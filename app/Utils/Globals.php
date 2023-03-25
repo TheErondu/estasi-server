@@ -10,7 +10,7 @@ public function welcomeMessage(): string
 {
     $timeOfDay = Carbon::now()->toRfc850String();
     $db_status = $this->checkDatabaseConnection();
-    return "Welcome to Estatio!, Today is $timeOfDay [API VERSION:1.0], Database status : $db_status";
+    return "Welcome to Estatio!, Today is $timeOfDay [API VERSION:1.0], Database connection is - $db_status";
 }
     public function checkDatabaseConnection(): string
     {
@@ -23,6 +23,6 @@ public function welcomeMessage(): string
             $status = 500;
         }
 
-        return "Database connection is $response status:$status";
+        return "$response, status: $status";
     }
 }
