@@ -27,7 +27,7 @@
         "DB_USERNAME": "brave",
         "DB_PASSWORD": "AHXA1qLDYKB10MOS",
         "CACHE_DRIVER": "array",
-        "LOG_CHANNEL": "stderr",
+        "LOG_CHANNEL": "stack",
         "SESSION_DRIVER": "cookie"
     }
 }
