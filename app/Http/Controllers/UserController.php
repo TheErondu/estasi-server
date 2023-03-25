@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class UserController extends ApiController
 {
-    protected $userApiService;
-    protected $userViewService;
+    protected UserApiService $userApiService;
+    protected UserViewService $userViewService;
 
     public function __construct(UserApiService $userApiService, UserViewService $userViewService)
     {
