@@ -9,20 +9,20 @@ class Globals{
 public function welcomeMessage(): string
 {
     $timeOfDay = Carbon::now()->toRfc850String();
-    $db_status = $this->checkDatabaseConnection()->content();
+    $db_status = $this->checkDatabaseConnection();
     return "Welcome to Estatio!, Today is $timeOfDay [API VERSION:1.0], Database status : $db_status";
 }
-    public function checkDatabaseConnection(): JsonResponse
+    public function checkDatabaseConnection(): string
     {
         try {
             DB::connection()->getPdo();
-            $response = ['status' => 'OK'];
+            $response = 'OK';
             $status = 200;
         } catch (\Exception $e) {
-            $response = ['status' => 'Error', 'message' => $e->getMessage()];
+            $response = $e->getMessage();
             $status = 500;
         }
 
-        return response()->json($response, $status);
+        return "Database connection is $response status:$status";
     }
 }
