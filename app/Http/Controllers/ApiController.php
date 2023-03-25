@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Utils\ConstantStrings;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
@@ -25,19 +20,7 @@ class ApiController extends Controller
         return response()->json($response, 200);
     }
 
-    public function checkDatabaseConnection(): JsonResponse
-    {
-        try {
-            DB::connection()->getPdo();
-            $response = ['status' => 'OK'];
-            $status = 200;
-        } catch (\Exception $e) {
-            $response = ['status' => 'Error', 'message' => $e->getMessage()];
-            $status = 500;
-        }
 
-        return response()->json($response, $status);
-    }
 
     /**
      * success response method.
