@@ -62,6 +62,6 @@ class AuthController extends ApiController
         auth()->user()->tokens->each(function ($token, $key) {
             $token->delete();
         });
-        return $this->sendResponse(null, "User logged out successfully.", 200);
+        return $this->sendResponse(null, "User logged out successfully.",);
     }
 }

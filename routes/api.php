@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/',[\App\Http\Controllers\ApiController::class, 'index'])->name('default');
-Route::get('/401', function () {
+Route::get('/unauthorized', function () {
     return response()->json(['error' => 'Unauthorized'], 401)
         ->header('Content-Type', 'application/json')
         ->header('X-Route-Name', 'unauthorized');

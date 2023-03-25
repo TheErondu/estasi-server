@@ -14,7 +14,7 @@ class Controller extends BaseController
     {
         return new Globals;
     }
-    public function welcome(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function welcome()
     {
         return view('welcome');
     }

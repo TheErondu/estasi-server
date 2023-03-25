@@ -1,7 +1,5 @@
 <?php
 namespace App\Utils;
-
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 

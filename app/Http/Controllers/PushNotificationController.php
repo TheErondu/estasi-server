@@ -12,7 +12,7 @@ class PushNotificationController extends ApiController
         $this->middleware('auth');
     }
 
-    public function storeToken(Request $request)
+    public function storeToken(Request $request): \Illuminate\Http\JsonResponse
     {
         auth()->user()->update(['push_token' => $request->token]);
         return $this->sendResponse(null, 'Device Push Token has been registered successfully.');
