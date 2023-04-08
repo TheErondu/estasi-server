@@ -27,6 +27,7 @@ Route::controller(AuthController::class)->group(function(){
 });
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/users/me',[\App\Http\Controllers\UserController::class,'userInfo']);
+    Route::post('/user/logout', [AuthController::class, 'logout']);
     Route::get('/users',[\App\Http\Controllers\UserController::class,'getUsersList']);
     Route::get('/messages',[\App\Http\Controllers\MessagesController::class,'getAllMessages']);
 });
